@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象操作</title>
+</head>
+<body>
+    
+    <script>
+        //查询属性值：使用圆点/中括号运算符
+        let book={
+            "main title":'JavaScript编程指南',
+            price:200,
+            author:{
+                name:'张三',
+                age:40
+            }
+        }
+        console.log(book.price)
+        console.log(book.author)
+        console.log(book['main title'])
+
+        //设置属性
+        //如果原先已经存在同一属性名：修改属性值
+        book.price=100
+        //如果原先不存在该属性名：添加一个新属性
+        book.title='js编程'
+        console.log(book)
+
+        //删除属性
+        delete book['main title']
+        console.log(book)
+        Object.defineProperty(book,'price',{
+            //默认值都是true,
+            //writable:true
+        })
+        let result1=delete book.price
+        console.log(result1)
+        console.log(book)
+
+        let obj1={x:1,y:2}
+        let obj2=Object.create(obj1)
+        delete obj2.x//不能删除继承属性
+        console.log(obj2.x)
+
+        //属性测试：
+        //使用in判断某个属性是否在某个对象里
+        let obj3={x:1,y:2}
+        let obj4=Object.create(obj3)
+        obj4.a=3
+        obj4.b=4
+        console.log('"x" in obj4',"x" in obj4)
+        console.log(obj4.x)//==>1
+
+        //使用hasOwnProperty():判断是否是自有属性
+        console.log('"x" is own obj4',obj4.hasOwnProperty("x"))
+        console.log('"y" is own obj4',obj4.hasOwnProperty("y"))
+
+
+
+        //使用pertyIsEnumerable()判断是否是自有属性
+        console.log('"x" is enum obj4',obj4.propertyIsEnumerable('x'))
+        console.log('"a" is enum obj4',obj4.propertyIsEnumerable('a'))
+
+
+
+        //枚举对象
+        //for-in列出可用的所有属性
+        for(let key in obj4){
+            console.log(key)//==>a b x y
+        }
+
+        //Object.keys()只拿【自有可枚举】属性
+        for(let key of Object.keys(obj4)){
+            console.log(key)
+            
+        }
+
+        let arr1 = Object.keys(obj4)//=>a b
+            console.log(arr1)
+        
+
+
+
+    </script>
+</body>
+</html>
