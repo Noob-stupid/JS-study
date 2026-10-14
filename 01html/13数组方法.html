@@ -94,6 +94,38 @@
         let arr7_1 = arr7.slice(3,5)
         console.log(arr7_1)
         console.log(arr7)
+
+        //splice:模拟对象数组的增删改操作
+        let arr8 = ['a','b','c','d','e','f']
+        console.log(arr8)
+        //模拟删除
+        //第一个参数：指定要删除的位置
+        //第二个参数：指定要删除的个数
+        arr8.splice(2,2)
+        console.log(arr8)
+        //模拟插入
+        //第一个参数：指定要插入的位置
+        //第二个参数：0（意味不删除）
+        //都三个参数：要插入的元素
+        let arr9 = ['a','b','c','d','e','f']
+        console.log(arr9)
+        arr9.splice(2,0,'k')
+        console.log(arr9)
+        //模拟修改
+        //第一个参数：指定要修改的位置
+        //第二个参数：先删除元素
+        //第三个参数：再插入新元素
+        let arr10 = ['a','b','c','d','e','f']
+        console.log(arr10)
+        arr10.splice(2,1,'m')
+        console.log(arr10)
+        //数组解构：把数组元素直接解开赋值给对应变量
+        let arr11 = ['a','b','c','d','e','f']
+        //let first = arr11[0]
+        //let second = arr11[1]
+        let [first,second]=arr11
+        console.log(first)
+        console.log(second)
     </script>
 </body>
 </html>
