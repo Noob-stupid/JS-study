@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义promise</title>
+</head>
+<body>
+<button onclick="fn1()">自定义promise</button>
+
+<script>
+    //自定义promise:使用Promise()构造函数new一个promise对象
+    //Promise()接收一个箭头函数
+    //箭头函数有两个形参
+    //resolve:包装成功的结果
+    //reject:包装失败的结果
+    function makePromise() {
+        let promise = new Promise((resolve, reject) => {
+        //模拟一个考试结果检查
+            let flag = Math.random()
+            if(flag >= 0.6){
+                //考试通过
+                resolve('考试通过。。。。。')
+            }else {
+                //考试失败
+                reject('考试失败。。。。。。')
+            }
+        })
+        return promise;
+    }
+
+    //使用自定义promise
+    function fn1(){
+        //得到一个promise对象
+        let promise = makePromise()
+        promise.then(res => {
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+</script>
+</body>
+</html>

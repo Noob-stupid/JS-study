@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fn1(printInfo)">回调函数</button>
+    
+
+    <script>
+        function printInfo(msg){
+            console.log(msg)
+        }
+
+        function fn1(f){
+            console.log('业务代码111111')
+            setTimeout(function(){
+                f('业务代码222222')
+            },3000)//回调函数
+
+            console.log('业务代码333333')
+
+        }
+    </script>
+</body>
+</html>

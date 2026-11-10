@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <a href="18-2会话存储.html">跳转</a>
+
+    <script>
+        //会话存储：
+        // 在一个会话过程中，存储的数据一直存在
+        //当会话结束(标签页/浏览器关闭),数据被清空
+        //存数据
+        sessionStorage.setItem('userName','李四')
+        sessionStorage.setItem('obj',JSON.stringify({name:'李四',age:20}))
+    </script>
+</body>
+</html>

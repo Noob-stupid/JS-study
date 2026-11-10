@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //本地存储：除非主动移除写入的数据，否则一直存在
+        //写入数据
+        let userName = '张三'
+        let obj ={
+            name:'张三',
+            age:19
+        }
+        localStorage.setItem('userName',userName)
+        //对于js对象，需要序列化
+        localStorage.setItem('obj',JSON.stringify(obj))
+        
+
+    </script>
+</body>
+</html>

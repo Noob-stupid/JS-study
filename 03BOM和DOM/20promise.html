@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="fn1()">promise</button>
+    <script>
+        //promise：是一个对象，存储了未来某个程序执行的结果
+        //提供两个方法：
+        //then：返回程序执行成功的结果
+        //catch:返回执行失败的结果
+
+        function fn1(){
+            //使用fetch读取网络数据，返回一个promise对象
+            let resPromise = fetch('/mock/db.json')
+            //处理promise对象
+            resPromise.then(res=>{
+                //返回成功结果
+                // console.log(res)
+                //从响应对象中取数据：通过响应对象的json()方法
+                //json()方法：返回一个promise对象
+                let jsonPromise = res.json()
+                jsonPromise.then(data=>{
+                    console.log(data)
+                })
+                .catch(err=>{
+                    console.log(err)
+                })
+            })
+            .catch(err=>{
+                //返回失败结果
+                console.log(err)
+            })
+        }
+        //为了简化嵌套promise对象的处理，
+        //可以使用promise的链式调用
+        function fn2(){
+            let resPromise =fetch('/mock/db.json')
+            resPromise.then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+            }).catch(err=>{
+                console.log(err)
+            })
+        }
+    </script>
+</body>
+</html>
