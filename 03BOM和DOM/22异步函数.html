@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //异步函数：使用async修饰的函数
+        //在异步函数里面，可以使用同步代码的形式写异步代码
+        async function fn1(){
+            try{
+                let rePromise =await fetch('/mock/db.json')
+                let data = await resPromise.json()
+                console.log(data)
+            }catch(err){
+                console.log(err)
+            }
+        }
+        //异步函数会传染
+        //异步函数只能在异步函数内部调用
+        async function fn2(){
+            await fn1()
+        }
+        
+    </script>
+</body>
+</html>
