@@ -1,12 +1,37 @@
 {
-    "clazz":[
-        {
-            "id":2401,
-            "name":"软件2401班"
-        },
-        {
-            "id":2402,
-            "name":"软件2402班"
-        }
-    ]
+  "clazz": [
+    {
+      "id": "2401",
+      "name": "软件2401班"
+    },
+    {
+      "id": "2402",
+      "name": "软件2402班"
+    },
+    {
+      "id": "9IUsln-YKmw",
+      "name": "软件2403"
+    },
+    {
+      "id": "GfeO97w_er8",
+      "name": "软件2403"
+    },
+    {
+      "id": "aGShRWBs-3Y",
+      "name": "软件2403"
+    },
+    {
+      "id": "Xt2T4vUxHX4",
+      "name": "软件2403"
+    },
+    {
+      "id": "gtkTGbDGzag",
+      "name": "软件2403"
+    },
+    {
+      "name": "软件2403",
+      "id": "aGp00RR7_3s"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

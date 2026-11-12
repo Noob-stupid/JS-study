@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="list()">获取数据</button>
+    <button onclick="add()">add</button>
+
+    <!-- 引入axios包 -->
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script>
+        //配置axios
+        axios.defaults.baseURL='http://localhost:3000/'
+
+        //获取数据
+        function list(){
+            axios.get('/clazz')
+            .then(res=>{
+                if(res.status===200||res.status===201){
+                    //从响应里面取数据
+                    let data = res.data
+                    console.log(data)
+                }
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+        async function list2() {
+            try{let res = await axios.get('/clazz')
+            if(res.status===200||res.status===201){
+                let data = res.data
+                console.log(data)
+            }
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+    //添加数据
+    function add(){
+        let clazz = {
+            id:"2404",
+            name:'软件2403'
+        }
+
+        axios.post('/clazz',clazz).then(res=>{
+            console.log(res.data)
+        }).catch(error=>{
+            console.log(error)
+        })
+    }
+     </script>
+</body>
+</html>

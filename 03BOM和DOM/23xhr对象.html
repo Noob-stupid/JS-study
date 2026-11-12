@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="fn1()">xhr</button>
+
+    <script>
+        //元素ajax实现：XMLHttpRequest对象
+        function fn1(){
+            //1 创建XMLHttpRequest对象
+            let xhr =new XMLHttpRequest()
+            //2 初始化xhr对象
+            xhr.open('get','http://localhost:3000/clazz')
+            //3 发送请求
+            xhr.send()
+            //4 注册回调函数，侦听响应结果
+            xhr.onload = function(){
+                //接收处理响应成功的结果
+                if(xhr.status===200||xhr.status===201){
+                    console.assert(xhr.response)
+                    console.log(JSON.parse(xhr.response))
+                }
+            }
+            xhr.onerror = function(){
+                //处理响应失败的结果
+                console.log('请求失败')
+            }
+
+        }
+    </script>
+</body>
+</html>
