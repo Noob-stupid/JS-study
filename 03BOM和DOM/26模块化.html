@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块化</title>
+</head>
+<body>
+
+
+
+<!--ES模块-->
+<script type="module">
+    //使用import导入别的模块导出的变量/函数
+    //按需导入
+    import {var1,fn1} from '../02js/mymodule.js'
+    console.log(var1)
+    fn1()
+
+    //import默认到处的变量/函数
+    //不用{}
+    import fn3 from '../02js/mymodule.js'
+
+    //重命名导入
+    import {var2 as newVar2} from '../02js/mymodule.js'
+</script>
+
+</body>
+</html>

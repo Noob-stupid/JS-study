@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="vue实例">
+        <h1>{{obj.name}}</h1>
+        <h2>{{name}}</h2>
+        <button @click="fn1()">点击</button>
+        <h2>price初始值</h2>
+        <h2>{{bookPrice}}</h2>
+        <button @click="fn2()">点击计算</button>
+    </div>
+
+
+    
+    <script>
+        const{createApp}=Vue
+        const myapp = createApp({
+            //选项式api
+            //数据属性
+            data:function(){
+                return{
+                    name:'Vue',
+                    obj:{
+                        name:"沧州交通学院",
+                        address:"黄骅"
+                    },
+                    price:20+30
+                }
+            },
+            //方法属性：定义处理数据或响应事件的函数
+            methods:{
+                //在方法属性里面，通过this引用data
+                fn1(){
+                    this.name="Vue入门"
+                    // this.obj.name="1"
+                },
+                fn2(){
+                    this.price=this.bookPrice
+                }
+            },
+            //计算属性对数据进行复杂的逻辑运算
+            //只读属性，读写属性
+            computed:{
+                bookPrice(){
+                    return this.price*2
+                }
+            }
+        })
+
+        myapp.mount("#vue实例")
+    </script>
+
+    
+</body>
+</html>

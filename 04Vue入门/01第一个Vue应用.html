@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一个Vue应用</title>
+</head>
+<body>
+ <!--1 引入vue.js包-->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!--2 创建一个div容器：vue运行环境-->
+<div id="app">
+<!-- 使用vue模板语法展现事件 -->
+ <h1>{{msg}}</h1>
+ <h1>{{count}}</h1>
+ <button @click="fn1()">点击</button>
+</div>
+
+<script> 
+    // 3解构出(导入)createApp函数
+    const{createApp}=Vue
+    // 4使用creatApp创建vue实例
+    const myapp = createApp({
+        //vue定义各种数据和函数（方法）
+        //响应式数据
+        data:function(){
+            return{
+                msg:'你好,第一个vue应用',
+                count:0
+            }
+        },
+        //定义各种函数(响应事件)
+        methods:{
+            fn1(){
+                this.count++
+            }
+        }
+    })
+    //5 把vue实例和div容器绑定
+    myapp.mount('#app')
+</script>
+
+
+</body>
+</html>
