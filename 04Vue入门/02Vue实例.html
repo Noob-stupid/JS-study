@@ -14,7 +14,11 @@
         <button @click="fn1()">点击</button>
         <h2>price初始值</h2>
         <h2>{{bookPrice}}</h2>
+        <h2>{{bookName}}</h2>
+        <h2>{{tempName}}</h2>
         <button @click="fn2()">点击计算</button>
+        <br>
+        <button @click="changeX()">改变x</button>
     </div>
 
 
@@ -31,7 +35,9 @@
                         name:"沧州交通学院",
                         address:"黄骅"
                     },
-                    price:20+30
+                    price:20+30,
+                    tempName:'',
+                    x:0
                 }
             },
             //方法属性：定义处理数据或响应事件的函数
@@ -42,7 +48,11 @@
                     // this.obj.name="1"
                 },
                 fn2(){
-                    this.price=this.bookPrice
+                    // this.price=this.bookPrice - 200
+                    this.bookName = "Vue编程"
+                },
+                changeX(){
+                    this.x = this.x+5
                 }
             },
             //计算属性对数据进行复杂的逻辑运算
@@ -50,7 +60,32 @@
             computed:{
                 bookPrice(){
                     return this.price*2
+                },
+                //读写属性
+                bookName:{
+                    set(v){
+                        this.tempName = v
+                    },
+                    get(){
+                        return this.tempName
+                    }
                 }
+            },
+            //监听属性：监听data里定义的数据
+            //当数据发生改变时，会回调在监听属性里对应的函数
+            watch:{
+                //监听x的变化，当变化时会调用
+                //回调函数(箭头函数)可以接收两个参数:新值，旧值
+                x:(newVal,oldVal)=>{
+                    console.log(newVal,oldVal)
+                }
+            },
+            //生命周期钩子
+            mounted(){
+                console.log('mounted挂载完成阶段')
+            },
+            created(){
+                console.log('created创建完成阶段')
             }
         })
 
@@ -58,5 +93,6 @@
     </script>
 
     
+
 </body>
 </html>
